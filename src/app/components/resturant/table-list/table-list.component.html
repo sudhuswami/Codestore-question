@@ -1,0 +1,35 @@
+<div class="container text-center">
+  <h1>{{ title }}</h1>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 search-box">
+      <input
+        class="form-control"
+        type="text"
+        name="search"
+        [(ngModel)]="searchText"
+        autocomplete="off"
+        placeholder="Start searching capacity"
+      />
+    </div>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Table</th>
+          <th>Seacting Capacity</th>
+          <th>Reservation Time</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let tablelist of tablelists | filter: searchText">
+          <td>{{ tablelist.id }}</td>
+          <td>{{ tablelist.name }}</td>
+          <td>{{ tablelist.capacity }}</td>
+          <td>{{ tablelist.time }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
